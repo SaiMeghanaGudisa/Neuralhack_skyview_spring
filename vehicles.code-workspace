@@ -7,5 +7,7 @@
 			"path": "..\\vehicle-details"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"spring-boot.ls.checkJVM": false
+	}
 }
