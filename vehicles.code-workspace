@@ -8,6 +8,7 @@
 		}
 	],
 	"settings": {
-		"spring-boot.ls.checkJVM": false
+		"spring-boot.ls.checkJVM": false,
+		"java.configuration.updateBuildConfiguration": "interactive"
 	}
 }
