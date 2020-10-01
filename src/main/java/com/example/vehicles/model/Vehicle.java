@@ -11,6 +11,8 @@ public class Vehicle {
 
 
 	@Id
+	@GeneratedValue
+	private int id;
 	private String registration_no;  //Primary Key
 	private int resident_id; // Foreign Key
 	private int vehicle_type;
@@ -25,6 +27,14 @@ public class Vehicle {
 		this.vehicle_type = Integer.parseInt(vehType);
 		this.vehicle_make = vehMake;
 		//this.is_editable = isEditable;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getRegistrationNo() {

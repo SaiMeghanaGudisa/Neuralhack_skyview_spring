@@ -2,9 +2,11 @@ package com.example.vehicles.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -88,16 +90,21 @@ public class VehiclesController {
 		}
 	}
 		
-	@PutMapping(value="/updatevehicle")
-	public void updateVehicle(@RequestBody Vehicle vehicle) {
-		service.save(vehicle);
+	@PutMapping(value="/getvehicles/{id}")
+	public void updateVehicle(@RequestBody Vehicle updated,@PathVariable int id) {
+		Optional<Vehicle> veh = service.findById(id);
+//		vehicle.setId(id);
+//		service.save(vehicle);
+		updated.setId(id);
+		service.save(updated);		
 	}
 
 	//@DeleteMapping(value = "/deletevehicle")
 	
 	@DeleteMapping(value="/getvehicles/{id}")
-	public void deleteVehicle(@PathVariable String id){
-		service.deleteById(id);
+	public void deleteVehicle(@PathVariable("id")  int vehid){
+		service.deleteById(vehid);
+		//service.delete(vehicle);	
 		count--;
 	}
 	
@@ -107,4 +114,13 @@ public class VehiclesController {
 	public List<Vehicle> getVehicles(){
 		return (List<Vehicle>) service.findAll();
 	}
+	
+	@RequestMapping(method=RequestMethod.GET,value="/getvehicles/{id}")
+	public Vehicle getVehicleById(@PathVariable("id") int id)
+	{
+		Optional<Vehicle> vehicle=service.findById(id);
+		return vehicle.get();
+		
+	}
+	
 }
