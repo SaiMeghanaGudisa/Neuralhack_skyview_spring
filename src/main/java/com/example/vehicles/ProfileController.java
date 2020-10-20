@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @Entity
@@ -94,5 +95,12 @@ public class ProfileController {
 		Optional<Residents> res = repo.findById(id);
 		updated.setResidentId(id);
 		repo.save(updated);
+	}
+	@RequestMapping(method=RequestMethod.GET,value="/getmembers/{id}")
+	public Residents getMember(@PathVariable("id") int id)
+	{
+		Optional<Residents> member=repo.findById(id);
+		return member.get();
+		
 	}
 }
