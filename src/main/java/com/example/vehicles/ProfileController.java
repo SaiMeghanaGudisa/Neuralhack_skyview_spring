@@ -78,7 +78,7 @@ class Residents{
 interface ProfileRepository extends CrudRepository<Residents,Integer> {}
 
 @RequestMapping("/profile")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://skyview24x7.com")
 @RestController
 public class ProfileController {
 	@Autowired

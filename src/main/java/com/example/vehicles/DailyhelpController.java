@@ -113,7 +113,7 @@ class Dailyhelp {
 
 @RequestMapping("/dailyhelp")
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://skyview24x7.com")
 public class DailyhelpController {
 
 	@Autowired

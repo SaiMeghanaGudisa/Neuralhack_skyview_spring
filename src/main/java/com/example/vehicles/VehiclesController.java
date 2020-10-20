@@ -92,7 +92,7 @@ interface VehiclesRepository extends CrudRepository<Vehicle,Integer> {}
 
 
 @RequestMapping("/vehicle")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://skyview24x7.com")
 @RestController
 
 public class VehiclesController {

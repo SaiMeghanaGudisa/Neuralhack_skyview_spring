@@ -101,7 +101,7 @@ interface FamilyRepository extends CrudRepository<Family,Integer> {}
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://skyview24x7.com")
 @RequestMapping("/family")
 public class FamilyController {
 
